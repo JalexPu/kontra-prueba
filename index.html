@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KONTRA - Retro Action Shooter (Phaser 3)</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Marquesina Superior Estilo Arcade con la Marca KONTRA -->
+    <header class="arcade-marquee">
+      <div class="marquee-decor left">
+        <span class="hazard-stripe"></span>
+        <span class="status-led green"></span>
+        <span class="marquee-badge">GRUPO 4 // SYS.OP</span>
+      </div>
+      <div class="marquee-center">
+        <h1 class="marquee-title"><span class="title-accent">K</span>ONTRA</h1>
+        <div class="marquee-tagline">
+          LA ÚLTIMA LÍNEA DE DEFENSA DE LA HUMANIDAD
+        </div>
+      </div>
+      <div class="marquee-decor right">
+        <span class="marquee-badge">COIN: FREE PLAY</span>
+        <span class="status-led red"></span>
+        <span class="hazard-stripe"></span>
+      </div>
+    </header>
+
+    <!-- Contenedor Principal del Gabinete Arcade y Pantalla de Phaser -->
+    <main class="game-container">
+      <!-- Remaches del marco metálico arcade -->
+      <span class="bezel-bolt top-left"></span>
+      <span class="bezel-bolt top-right"></span>
+      <span class="bezel-bolt bottom-left"></span>
+      <span class="bezel-bolt bottom-right"></span>
+
+      <!-- Lienzo del juego montado por Phaser 3 -->
+      <div id="gameCanvasWrap"></div>
+
+      <!-- Capa de líneas de escaneo CRT Arcade -->
+      <div id="crtOverlay" class="crt-overlay"></div>
+    </main>
+
+    <!-- Barra de Controles Arcade -->
+    <footer class="controls-info">
+      <div>
+        <span class="key-badge">A</span> <span class="key-badge">D</span> /
+        <span class="key-badge">←</span>
+        <span class="key-badge">→</span> Moverse
+      </div>
+      <div>
+        <span class="key-badge">S</span> /
+        <span class="key-badge">↓</span> Agacharse
+      </div>
+      <div>
+        <span class="key-badge">ESPACIO</span> /
+        <span class="key-badge">W</span> Saltar
+      </div>
+      <div><span class="key-badge">RATÓN</span> Apuntar</div>
+      <div>
+        <span class="key-badge">CLIC IZQ</span> /
+        <span class="key-badge">Z</span> Disparar
+      </div>
+      <div><span class="key-badge">B</span> Bomba de área</div>
+      <div>
+        <span class="key-badge">P</span> /
+        <span class="key-badge">ESC</span> Pausa
+      </div>
+      <div><span class="key-badge">R</span> Reiniciar</div>
+    </footer>
+
+    <!-- Motor Phaser 3 (CDN) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.70.0/phaser.min.js"></script>
+
+    <!-- 0. Configuración Global -->
+    <script src="js/config/game-config.js"></script>
+
+    <!-- 1. Sistema de Audio -->
+    <script src="js/audio/retro-audio.js"></script>
+
+    <!-- 2. Entidades y Efectos -->
+    <script src="js/entities/particle.js"></script>
+    <script src="js/entities/bullet.js"></script>
+    <script src="js/entities/bomb.js"></script>
+
+    <!-- 3. Ítems y Coleccionables -->
+    <script src="js/items/emerald.js"></script>
+    <script src="js/items/weapon-pickup.js"></script>
+    <script src="js/items/heart-item.js"></script>
+    <script src="js/items/bomb-pickup.js"></script>
+
+    <!-- 4. Enemigos y Jefes -->
+    <script src="js/enemies/war-plane.js"></script>
+    <script src="js/enemies/enemy.js"></script>
+    <script src="js/enemies/turret.js"></script>
+    <script src="js/enemies/drone.js"></script>
+    <script src="js/enemies/mini-boss.js"></script>
+    <script src="js/enemies/boss-renderer.js"></script>
+    <script src="js/enemies/boss-robot.js"></script>
+
+    <!-- 5. Jugador y Armamento -->
+    <script src="js/player/weapon-system.js"></script>
+    <script src="js/player/player-renderer.js"></script>
+    <script src="js/player/player.js"></script>
+
+    <!-- 6. Core del Motor de Juego -->
+    <script src="js/core/mapa.js"></script>
+    <script src="js/core/camera-system.js"></script>
+    <script src="js/core/input-system.js"></script>
+    <script src="js/core/cinematic-system.js"></script>
+    <script src="js/core/collision-system.js"></script>
+    <script src="js/core/level-renderer.js"></script>
+    <script src="js/core/level-manager.js"></script>
+
+    <!-- 7. Escenas de Phaser 3 -->
+    <script src="js/scenes/base-scene.js"></script>
+    <script src="js/scenes/boot-scene.js"></script>
+    <script src="js/scenes/menu-scene.js"></script>
+    <script src="js/scenes/story-scene.js"></script>
+    <script src="js/scenes/credits-scene.js"></script>
+    <script src="js/scenes/controls-scene.js"></script>
+    <script src="js/scenes/play-scene.js"></script>
+    <script src="js/scenes/pause-scene.js"></script>
+    <script src="js/scenes/gameover-scene.js"></script>
+
+    <!-- 8. Punto de Entrada Principal -->
+    <script src="js/main.js"></script>
+  </body>
+</html>

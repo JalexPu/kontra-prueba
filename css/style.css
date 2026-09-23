@@ -1,0 +1,288 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+body {
+  background: radial-gradient(circle at 50% 25%, #151a29, #05070d);
+  color: #e0e0e0;
+  font-family: "Courier New", Courier, monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding: 10px 0;
+}
+
+/* Marquesina Superior Estilo Arcade con la Marca KONTRA */
+.arcade-marquee {
+  width: 840px;
+  background: linear-gradient(180deg, #181d2a 0%, #0d1017 100%);
+  border: 3px solid #2e384f;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  box-shadow:
+    0 -4px 20px rgba(255, 51, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 18px;
+  position: relative;
+  z-index: 5;
+}
+
+.marquee-decor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hazard-stripe {
+  width: 32px;
+  height: 12px;
+  background: repeating-linear-gradient(
+    -45deg,
+    #ffcc00,
+    #ffcc00 5px,
+    #111111 5px,
+    #111111 10px
+  );
+  border: 1px solid #444;
+  border-radius: 2px;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.8);
+}
+
+.status-led {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status-led.green {
+  background: #00f5d4;
+  box-shadow:
+    0 0 8px #00f5d4,
+    0 0 14px #00f5d4;
+  animation: ledPulse 1.8s infinite alternate;
+}
+
+.status-led.cyan {
+  background: #00f5d4;
+  box-shadow:
+    0 0 8px #00f5d4,
+    0 0 14px #00f5d4;
+  animation: ledPulse 1.6s infinite alternate;
+}
+
+.status-led.orange {
+  background: #ffaa00;
+  box-shadow:
+    0 0 8px #ffaa00,
+    0 0 14px #ffaa00;
+  animation: ledPulse 1.4s infinite alternate;
+}
+
+.status-led.red {
+  background: #ff0055;
+  box-shadow:
+    0 0 8px #ff0055,
+    0 0 14px #ff0055;
+  animation: ledPulse 1.2s infinite alternate;
+}
+
+@keyframes ledPulse {
+  from {
+    opacity: 0.6;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+.marquee-badge {
+  font-size: 0.72rem;
+  color: #8fa0b8;
+  background: rgba(10, 14, 22, 0.85);
+  border: 1px solid #333f56;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+.marquee-center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.marquee-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  line-height: 1.05;
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #ffea00 35%,
+    #ff3300 70%,
+    #880000 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 12px rgba(255, 51, 0, 0.75))
+    drop-shadow(2px 2px 0px #1a0000);
+  margin: 0;
+}
+
+.title-accent {
+  color: #ff0033;
+  -webkit-text-fill-color: #ff0033;
+  text-shadow: 0 0 15px #ff0000;
+}
+
+.marquee-tagline {
+  font-size: 0.68rem;
+  letter-spacing: 2.5px;
+  color: #ffaa00;
+  font-weight: bold;
+  text-shadow: 0 0 8px rgba(255, 170, 0, 0.5);
+  margin-top: 2px;
+}
+
+/* Gabinete Arcade Principal */
+.game-container {
+  position: relative;
+  width: 840px;
+  height: 460px;
+  border: 4px solid #232b3d;
+  box-shadow:
+    0 0 35px rgba(0, 245, 212, 0.25),
+    inset 0 0 25px rgba(0, 0, 0, 0.95);
+  background: #0b131f;
+  border-radius: 0 0 8px 8px;
+  line-height: normal;
+  overflow: hidden;
+}
+
+/* Remaches decorativos del marco del monitor */
+.bezel-bolt {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle at 35% 35%, #94a3b8, #334155 70%, #0f172a);
+  border: 1px solid #1e293b;
+  border-radius: 50%;
+  z-index: 12;
+  box-shadow:
+    inset 0 0 2px rgba(0, 0, 0, 0.8),
+    0 0 3px rgba(0, 0, 0, 0.6);
+}
+
+.bezel-bolt::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 1px;
+  width: 6px;
+  height: 1px;
+  background: #0f172a;
+}
+
+.bezel-bolt.top-left {
+  top: 6px;
+  left: 6px;
+}
+.bezel-bolt.top-right {
+  top: 6px;
+  right: 6px;
+}
+.bezel-bolt.bottom-left {
+  bottom: 6px;
+  left: 6px;
+}
+.bezel-bolt.bottom-right {
+  bottom: 6px;
+  right: 6px;
+}
+
+#gameCanvasWrap {
+  width: 840px;
+  height: 460px;
+  line-height: 0;
+}
+
+#gameCanvasWrap canvas {
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  background-color: #0b131f;
+  cursor: default;
+}
+
+/* Capa de Efecto CRT Scanlines */
+.crt-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+  background:
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.22) 50%),
+    linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.025),
+      rgba(0, 255, 0, 0.01),
+      rgba(0, 0, 255, 0.025)
+    );
+  background-size:
+    100% 3px,
+    6px 100%;
+  box-shadow: inset 0 0 45px rgba(0, 0, 0, 0.65);
+}
+
+/* Barra de Controles Arcade */
+.controls-info {
+  margin-top: 14px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 840px;
+  font-size: 0.74rem;
+  color: #8fa0b8;
+  background: #0d121d;
+  padding: 10px 18px;
+  border-radius: 6px;
+  border: 1px solid #1e2638;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.controls-info > div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.key-badge {
+  background: #1e2638;
+  color: #00f5d4;
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: 1px solid #334155;
+  font-weight: bold;
+  font-size: 0.7rem;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+}
